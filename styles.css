@@ -1,3 +1,56 @@
+@font-face {
+    font-family: 'Wild World';
+    src: url(./assets/fonts/WILD\ WORLD.otf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+    /* background-color: #f4fff4; */
+    color: rgb(102 142 102);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid;
+    padding: 0 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    padding-left: 5em;
+}
+
+#logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 5em;
+    width: 500px;
+    color: mediumslateblue;
+    font-family: 'Wild World', sans-serif;
+}
+
+#logo-2 {
+    color: #fff;
+    text-shadow: 2px 2px 9px mediumslateblue;
+}
+
 .portrait {
     width: 300px;
 }
