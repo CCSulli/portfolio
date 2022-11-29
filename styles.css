@@ -1,23 +1,29 @@
+@font-face {
+    font-family: 'Harmond';
+    src: url(./assets/fonts/Harmond-SemiBoldCondensed.otf);
+}
+
 :root {
     --primary-color: #605EBA;
     --secondary-color: #5EBA78;
+    --primary-font: 'Harmond', serif;
+    --secondary-font: 'Goudy Bookletter 1911', serif;
+    --tertiary-font: 'Plus Jakarta Sans', sans-serif;
   }
 
 ul { 
     padding-inline-start: 0;
 }
 
-@font-face {
-    font-family: 'Harmond';
-    src: url(./assets/fonts/Harmond-SemiBoldCondensed.otf);
+body, input, textarea, button {
+    font: 24px var(--tertiary-font);
 }
 
 body {
     display: flex;
     flex-direction: row; 
     margin: 0;
-    color: #605EBA;
-    font: 24px 'Plus Jakarta Sans', sans-serif;
+    color: var(--primary-color);
     line-height: 32px;
 
 }
@@ -72,12 +78,17 @@ button {
     height: 100%;
     width: 200px;
     border: 0;
-    font: 30px 'Goudy Bookletter 1911', serif;
+    /* font: var(--tertiary-font); */
 }
 
 button a {
     color: #fff;
     text-decoration: none;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #8484e0;
 }
 
 /* Main */
@@ -100,18 +111,20 @@ main {
     flex-wrap: wrap;
 }
 
+#hero h1, #hero p {
+    margin: 0 0 30px 0;
+}
+
 #hero h1 {
     font-size: 114px;
     line-height: 90.63px;
     font-family: 'Harmond', serif;
     width: 443px;
-    margin: 0;
     padding-right: 100px;
 }
 
 #hero p {
     width: 400px;
-    margin: 0;
 }
 
 section {
@@ -136,4 +149,8 @@ h2 {
 
 .portrait {
     width: 300px;
+}
+
+.project-vid {
+    width: 400px;
 }
