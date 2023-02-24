@@ -1,6 +1,9 @@
+/* Default styles */
+
 :root {
   --primary-color: #605eba;
-  --secondary-color: #54ab94;
+  --secondary-color: #74b9b9;
+  --button-color: #c74787;
   --tertiary-color: #8484e0;
   --active-color: #47c7a5;
   --primary-font: "Harmond", serif;
@@ -10,9 +13,9 @@
 }
 
 @font-face {
-    font-family: "Harmond";
-    src: url(./assets/fonts/Harmond-SemiBoldCondensed.otf);
-  }
+  font-family: "Harmond";
+  src: url(./assets/fonts/Harmond-SemiBoldCondensed.otf);
+}
 
 *:hover {
   transition: all 200ms ease;
@@ -26,16 +29,37 @@ button {
 }
 
 body {
-  display: flex;
+  /* display: flex; */
   margin: 0;
   color: var(--primary-color);
   line-height: 26px;
-  background: linear-gradient(
-    117deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgb(255, 235, 255) 100%
-  );
-  overflow-x: hidden;
+  background-color:hsla(0,72%,97%,1);
+  background-image:
+  radial-gradient(at 40% 20%, rgb(255, 255, 255) 0px, transparent 50%),
+  radial-gradient(at 67% 17%, rgb(255, 224, 248) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, rgb(255, 241, 242) 0px, transparent 50%),
+  radial-gradient(at 80% 49%, hsla(335,0%,98%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, rgb(254, 236, 248) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, rgb(228, 227, 255) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, rgb(248, 243, 248) 0px, transparent 50%);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.page {
+  /* width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+}
+
+section {
+  padding: 70px;
+  border-bottom: solid 1px;
 }
 
 h1,
@@ -48,13 +72,9 @@ h2 {
   font: 96px var(--primary-font);
 }
 
-section {
-  padding: 70px;
-  border-bottom: solid 1px;
-}
-
 a {
   text-decoration: none;
+  color: var(--primary-color);
 }
 
 ul {
@@ -62,34 +82,88 @@ ul {
   list-style: none;
 }
 
-.page {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+button {
+  background-color: var(--primary-color);
+  height: 100%;
+  width: 200px;
+  border: 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-#logo-menu, #brand, h1, h2, h3, p, #skills {
-    animation-name: slideInLeft;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-delay: 0.5s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: backwards;
-    
+#logo-menu,
+#brand,
+h1,
+h2,
+h3,
+p,
+#skills {
+  animation-name: slideInLeft;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: backwards;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1.5s;
+}
+
+.show {
+  opacity: 1;
+}
+
+#circle-cursor { 
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #c74787;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 90%;
+}
+
+/* Default styles for smaller screens */
+
+@media (max-width: 800px) {
+
+  section {
+    padding: 40px 20px;
   }
 
-/*********************** Nav Vertical *************************/
+  h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  
+  #circle-cursor {
+    display: none;
+  }
+
+}
+
+/* End of default styles */
+
+/* Side nav styles */
 
 #side-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-right: 4px solid;
   width: 100px;
   font-size: 16px;
   position: relative;
   top: 0;
-  margin-left: -86px;
-  background-color: var(--primary-color);
+  margin-left: -96px;
   transition: all 50ms ease;
+  z-index: 10;
+  background-color: transparent;
 }
 
 .nav-container {
@@ -98,23 +172,21 @@ ul {
   justify-content: space-between;
   height: 100vh;
   position: fixed;
-}
-
-/* #side-nav:hover {
-  margin-left: 0px;
+  background-color: transparent;
   background: linear-gradient(
     117deg,
     rgba(255, 255, 255, 1) 0%,
     rgb(255, 235, 255) 100%
   );
-} */
+  border-right: solid 1px var(--primary-color);
+}
 
 #side-nav ul {
   padding: 0 15px;
 }
 
 #side-nav li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #side-nav a {
@@ -133,8 +205,8 @@ ul {
 
 #github-2 {
   fill: var(--primary-color);
-  width: 57%;
-  margin: 10px 0px 14px 16px;
+  width: 50px;
+  margin: 10px auto;
   animation-name: float;
   animation-duration: 1000ms;
   animation-iteration-count: infinite;
@@ -145,36 +217,34 @@ ul {
   fill: var(--secondary-color);
 }
 
+/* Side nav styles for smaller screens */
+
+@media (max-width: 800px) {
+
+}
+
+/* End of Side nav styles */
+
+/* Header styles */
+
 #logo-menu {
   position: absolute;
-  top: 10px;
-  left: 113px;
-  width: 60px;
-  height: 60px;
+  top: 11px;
+  left: 104px;
+  width: 70px;
+  /* height: 60px; */
   display: flex;
-  text-align: center;
+  /* text-align: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 50%; */
   background-color: transparent;
-}
-
-#logo-menu:hover {
   cursor: pointer;
-  transform: rotate(1080deg);
-}
-
-#logo-menu .line {
-  width: 38px;
-  height: 2px;
-  background-color: var(--primary-color);
 }
 
 #logo {
-  width: 48px;
-  animation: fadeIn 1s ease-in;
+  animation: fadeIn 1s ease-in; 
+  /* width: 80px; */
 }
-
-/***************************** Nav Horizontal ********************/
 
 #brand {
   font: 30px var(--secondary-font);
@@ -186,15 +256,15 @@ ul {
 }
 
 #brand:hover {
-  color: var(--active-color);
+  /* color: var(--active-color); */
   transform: scale(1.1);
 }
 
-#top-nav {
+#header-nav {
   display: flex;
   padding-left: 46px;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: end;
+  /* align-items: center; */
   border-bottom: 1px solid;
   height: 80px;
   background: linear-gradient(
@@ -202,17 +272,7 @@ ul {
     rgba(255, 255, 255, 1) 0%,
     rgb(255, 235, 255) 100%
   );
-  animation: nav-load --nav-load-time ease-in;
-}
-
-button {
-  background-color: var(--primary-color);
-  height: 100%;
-  width: 200px;
-  border: 0;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
+  /* animation: nav-load --nav-load-time ease-in; */
 }
 
 .button-1 {
@@ -229,30 +289,30 @@ button {
   background-color: var(--active-color);
 }
 
-/*********************** Main ***************************/
-
-main {
+#hero {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-wrap: wrap;
+  /* position: relative; */
 }
 
-#hero {
+#container-1 {
+  width: 500px;
+  margin-right: 20px;
+}
+
+#container-2 {
+  width: 500px;
+}
+#container-2 img {
   width: 100%;
-  display: inline-flex;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: -2;
-  /* background-image: url(./assets/imgs/billy-huynh-v9bnfMCyKbg-unsplash.jpeg);
-  background-size: cover; */
 }
 
 #hero h1 {
   font: 114px var(--primary-font);
   line-height: 90.63px;
   width: 443px;
-  padding-right: 100px;
-  position: relative;
+  /* padding-right: 100px;
+  position: relative; */
 }
 
 .lead-1 {
@@ -274,7 +334,8 @@ main {
   display: inline-block;
 }
 
-.lead-3, h2 {
+.lead-3,
+h2 {
   color: var(--tertiary-color);
   animation-name: slideInLeft;
   animation-duration: 2s;
@@ -285,26 +346,26 @@ main {
   display: inline-block;
 }
 
-.intro-container {
+.intro {
   display: flex;
   flex-direction: column;
   flex: 0 0 0%;
 }
 
-.intro-container p {
-  width: 400px;
+.intro p {
+  /* width: 400px; */
   font-size: 22px;
-  line-height: 32px;
+  line-height: 40px;
 }
 
 #skills {
-    animation-delay: 1.5s;
+  animation-delay: 1.5s;
 }
 
 #skills svg {
-  height: 32px;
+  height: 40px;
   width: 40px;
-  fill: var(--secondary-color);
+  fill: #74b9b9;
 }
 
 #skills li {
@@ -316,7 +377,71 @@ main {
   transform: scale(1.1);
 }
 
-/************************* Projects *****************************/
+#css3 {
+  margin-left: -5px;
+}
+
+#linux {
+  margin-left: -5px;
+}
+
+#sketch {
+  margin-left: -4px;
+}
+
+#windows {
+  margin-left: -2px;
+}
+
+#apple {
+  margin-left: -2px;
+}
+
+/* Header styles for smaller screens */
+
+@media (max-width: 800px) {
+  
+  #logo-menu {
+    top: 15px;
+    left: 105px;
+    width: 60px;
+  }
+
+  #brand {
+    display: none;
+  }
+  
+  .button-1 {
+    display: none;
+  }
+
+  #hero {
+    justify-content: space-around;
+  }
+
+  #hero h1 {
+    font-size: 70px;
+    line-height: 60px;
+    width: 300px;
+    display: block;
+    /* padding-right: 100px; */
+  }
+
+  .intro-container p {
+    width: 100%;
+  }
+
+  .project-vid {
+    width: 100%;
+  }
+}
+
+/* End of header styles */
+
+/* Main styles */
+
+/* 1. Project styles */
+
 
 #project-container,
 #recs-container {
@@ -334,7 +459,7 @@ main {
   margin: 10px 10px 40px 10px;
   border: solid 1px;
   width: 400px;
-  box-shadow: 10px 10px var(--secondary-color);
+  box-shadow: 20px 20px #54ab94;
   background: linear-gradient(
     117deg,
     rgba(255, 255, 255, 1) 0%,
@@ -374,7 +499,41 @@ p {
   list-style-type: disc;
 }
 
-/************************** Recommendations **********************/
+.project-details button {
+  width: 60px;
+  background-color: transparent;
+}
+
+.project-link {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 30px 10px 0;
+}
+
+.project-link a {
+  position: relative;
+  left: 0;
+  display: inline-flex;
+  border-bottom: 5px solid;
+}
+
+.project-link a:hover {
+  border-color: var(--secondary-color);
+  left: 10px;
+  padding-left: 20px;
+  transition: all 200ms ease-in;
+}
+
+.arrow {
+  height: 30px;
+  color: inherit;
+  fill: var(--primary-color);
+  margin-right: -8px;
+}
+
+/* End of project styles */
+
+/* 2. Recommendation styles */
 
 #recs-container {
   justify-content: flex-start;
@@ -395,6 +554,11 @@ p {
   color: var(--secondary-color);
 }
 
+.block-quote p {
+  font-size: 20px;
+  line-height: 1.2em;
+}
+
 .citation h3 {
   margin-bottom: 0;
 }
@@ -403,7 +567,20 @@ p {
   font-size: 14px;
 }
 
-/********************* Contact ********************************/
+/* Recommendation styles for smaller screens */
+
+@media (max-width: 800px) {
+
+  .block-quote:before {
+    left: -6px;
+    top: -10px;
+  }
+
+}
+
+/* End of recommendation styles */
+
+/* 3. Contact styles */
 
 #contact {
   background-color: var(--primary-color);
@@ -464,7 +641,25 @@ p {
   fill: var(--active-color);
 }
 
-/************************ Footer **************************/
+/* Alternative contact styles for smaller screens */
+
+@media (max-width: 800px) {
+
+  #contact {
+    margin: 0px;
+  }
+
+  #contact h2 {
+    font-size: 30px;
+    line-height: 40px;
+  } 
+
+}
+
+/* End of contact styles */
+/* End of main styles */
+
+/* Footer styles */
 
 footer {
   text-align: center;
@@ -473,7 +668,10 @@ footer {
   font-size: 0.9em;
 }
 
-/************************** Keyframes *********************/
+/* End of footer styles */
+
+
+/* Keyframes */
 
 @keyframes float {
   0% {
@@ -497,15 +695,6 @@ footer {
   }
 }
 
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes slideInLeft {
   0% {
     opacity: 0;
@@ -517,11 +706,5 @@ footer {
   }
 }
 
-/************************Media Queries*******************/
 
-@media (max-width: 600px) {
-  #hero h1 {
-    font-size: 70px;
-    line-height: 60px;
-  }
-}
+

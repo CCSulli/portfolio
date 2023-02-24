@@ -1,22 +1,49 @@
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-	const x = document.getElementById("side-nav");
-	if (x.style.display === "block") {
-	  x.style.display = "none";
-	} else {
-	  x.style.display = "block";
+
+// Menu Slider
+function toggleMenu() {    
+	if(sideNav.style.marginLeft === "" || sideNav.style.marginLeft === "-96px") { 
+	  sideNav.style.marginLeft = "0";
 	}
-  }
+	else { 
+	  sideNav.style.marginLeft = "-96px";
+	}
+  };
 
+const sideNav = document.querySelector('#side-nav');
+const logoMenu = document.querySelector('#logo-menu');
 
-let clip = document.getElementById("vid");
-clip.playbackRate = 4;
+  
+logoMenu.addEventListener('click', toggleMenu);
+  
 
-clip.addEventListener("mouseover", function () {
-	this.play();
+// Scroll Animation
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		console.log(entry)
+		if (entry.isIntersecting) {
+			entry.target.classList.add('show');
+		 } 
+		else {
+			entry.target.classList.remove('show');
+		}
+	});
 });
 
-clip.addEventListener("mouseleave", function () {
-	this.pause();
-});
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+// Videos
+document.getElementById('vid-1').playbackRate = 3;
+document.getElementById('vid-2').playbackRate = 3;
+document.getElementById('vid-3').playbackRate = 3;
+
+// Cursor
+let circle = document.getElementById('circle-cursor');
+const onMouseMove = (e) =>{
+  circle.style.left = e.pageX + 'px';
+  circle.style.top = e.pageY + 'px';
+  
+}
+document.addEventListener('mousemove', onMouseMove);
+
 
