@@ -74,7 +74,6 @@ h2 {
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
 }
 
 ul {
@@ -83,13 +82,7 @@ ul {
 }
 
 button {
-  background-color: var(--primary-color);
-  height: 100%;
-  width: 200px;
-  border: 0;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
+  border: none;
 }
 
 #logo-menu,
@@ -275,17 +268,26 @@ p,
   /* animation: nav-load --nav-load-time ease-in; */
 }
 
-.button-1 {
-  background-color: var(--tertiary-color);
+.contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  height: 100%;
+  width: 200px;
+  border: 0;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.button-1:hover {
+
+.contact-btn:hover {
   background-color: var(--secondary-color);
-  cursor: pointer;
   font-size: 105%;
 }
 
-.button-1:active {
+.contact-btn:active {
   background-color: var(--active-color);
 }
 
@@ -401,6 +403,15 @@ h2 {
 
 @media (max-width: 800px) {
   
+  #header-nav {
+    height: 60px;
+  }
+
+  .contact-btn {
+    width: 150px;
+    font-size: 16px;
+  }
+
   #logo-menu {
     top: 15px;
     left: 105px;
@@ -510,11 +521,17 @@ p {
   margin: 0 30px 10px 0;
 }
 
+.project-link p {
+  color: var(--primary-color);
+  margin: 0;
+}
+
 .project-link a {
   position: relative;
   left: 0;
   display: inline-flex;
   border-bottom: 5px solid;
+  color: var(--primary-color);
 }
 
 .project-link a:hover {
@@ -602,26 +619,13 @@ p {
 #contact-container {
   display: flex;
   justify-content: center;
+  height: 80px;
 }
 
-.button-2 {
-  height: 80px;
-  width: 200px;
-  padding: 20px;
+.alt {
+  background-color: none;
   margin-right: 24px;
   border: solid 1px white;
-}
-
-.button-2:hover {
-  background-color: var(--secondary-color);
-  color: white;
-  font-size: 105%;
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-.button-2:active {
-  background-color: var(--active-color);
 }
 
 #github-3 svg {

@@ -33,9 +33,9 @@ const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
 // Videos
-document.getElementById('vid-1').playbackRate = 3;
-document.getElementById('vid-2').playbackRate = 3;
-document.getElementById('vid-3').playbackRate = 3;
+// document.getElementById('vid-1').playbackRate = 3;
+// document.getElementById('vid-2').playbackRate = 3;
+// document.getElementById('vid-3').playbackRate = 3;
 
 // Cursor
 let circle = document.getElementById('circle-cursor');
