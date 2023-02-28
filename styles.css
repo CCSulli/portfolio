@@ -58,7 +58,7 @@ main {
 }
 
 section {
-  padding: 70px;
+  padding: 100px;
   border-bottom: solid 1px;
 }
 
@@ -130,7 +130,7 @@ p,
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 50px;
     margin-bottom: 40px;
   }
   
@@ -224,7 +224,7 @@ p,
   position: absolute;
   top: 11px;
   left: 104px;
-  width: 70px;
+  /* width: 70px; */
   /* height: 60px; */
   display: flex;
   /* text-align: center;
@@ -235,6 +235,7 @@ p,
 }
 
 #logo {
+  width: 60px;
   animation: fadeIn 1s ease-in; 
   /* width: 80px; */
 }
@@ -413,9 +414,12 @@ h2 {
   }
 
   #logo-menu {
-    top: 15px;
-    left: 105px;
-    width: 60px;
+    top: 5px;
+    left: 90px;
+  }
+
+  #logo {
+    width: 50px;
   }
 
   #brand {
@@ -546,6 +550,22 @@ p {
   color: inherit;
   fill: var(--primary-color);
   margin-right: -8px;
+}
+
+/* Project styles for smaller screens */
+
+@media (max-width: 800px) {
+  
+  .project {
+    width: 100%;
+    box-shadow: 11px 20px #54ab94;
+    margin-bottom: 100px;
+  }
+
+  .project-vid {
+    width: 100%;
+  }
+
 }
 
 /* End of project styles */
