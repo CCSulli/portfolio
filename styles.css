@@ -91,6 +91,7 @@ h1,
 h2,
 h3,
 p,
+.hero-img,
 #skills {
   animation-name: slideInLeft;
   animation-duration: 2s;
@@ -212,9 +213,6 @@ p,
 
 /* Side nav styles for smaller screens */
 
-@media (max-width: 800px) {
-
-}
 
 /* End of Side nav styles */
 
@@ -431,15 +429,20 @@ h2 {
   }
 
   #hero {
-    justify-content: space-around;
+    justify-content: center;
+    margin: 40px 0 40px;
   }
 
   #hero h1 {
-    font-size: 70px;
+    font-size: 72px;
     line-height: 60px;
-    width: 300px;
+    width: 100%;
     display: block;
     /* padding-right: 100px; */
+  }
+
+  #container-1 {
+    margin-right: 0;
   }
 
   .intro-container p {
@@ -613,9 +616,55 @@ p {
     top: -10px;
   }
 
+  .block-quote {
+    margin: 10px 0 40px;
+  }
+
 }
 
 /* End of recommendation styles */
+
+/* 4. About styles */
+
+#about-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#about img {
+  width: 400px;
+  margin: 10px 100px 40px 0;
+  border: solid 1px;
+  box-shadow: 20px 20px #54ab94;
+}
+
+#about p {
+  max-width: 500px; 
+  margin-right: 20px;
+}
+
+#about a {
+  color: var(--active-color);
+  font-weight: bold;
+}
+
+#text-container {
+
+}
+
+/* About styles for smaller screens */
+
+@media (max-width: 800px) {
+  #about img {
+    width: 96%;
+  }
+
+  #about p {
+    margin-right: 0;
+  }
+}
+
+/* End of about styles */
 
 /* 3. Contact styles */
 

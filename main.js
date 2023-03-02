@@ -11,9 +11,11 @@ function toggleMenu() {
 
 const sideNav = document.querySelector('#side-nav');
 const logoMenu = document.querySelector('#logo-menu');
+const a = document.querySelectorAll(".nav-link");
 
   
 logoMenu.addEventListener('click', toggleMenu);
+a.forEach(el => el.addEventListener("click", toggleMenu));
   
 
 // Scroll Animation
